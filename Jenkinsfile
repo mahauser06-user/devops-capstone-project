@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t maha006/devops-app .'
+                sh 'docker build -t maha006/devops-capstone-app .'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'maha006', passwordVariable: 'PASS')]) {
                     sh 'echo $PASS | docker login -u $maha006 --Gooddayinternal1@'
-                    sh 'docker push yourdockerhubusername/devops-app'
+                    sh 'docker push maha006/devops-capstone-app'
                 }
             }
         }
